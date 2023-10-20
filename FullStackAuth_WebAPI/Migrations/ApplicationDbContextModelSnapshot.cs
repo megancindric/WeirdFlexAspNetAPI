@@ -19,33 +19,6 @@ namespace FullStackAuth_WebAPI.Migrations
                 .HasAnnotation("ProductVersion", "7.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("FullStackAuth_WebAPI.Models.Car", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Make")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Model")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("OwnerId")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<int>("Year")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OwnerId");
-
-                    b.ToTable("Cars");
-                });
-
             modelBuilder.Entity("FullStackAuth_WebAPI.Models.User", b =>
                 {
                     b.Property<string>("Id")
@@ -144,13 +117,13 @@ namespace FullStackAuth_WebAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "59de2413-2986-49fa-a7ea-d2ee9bae8830",
+                            Id = "6fb40274-e7bd-43b5-8400-231c54967063",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "02826bcd-2b15-4c0a-8d85-281ade12b9b9",
+                            Id = "ca505bc9-6297-40bd-9fac-6e04d571fed7",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -256,15 +229,6 @@ namespace FullStackAuth_WebAPI.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("FullStackAuth_WebAPI.Models.Car", b =>
-                {
-                    b.HasOne("FullStackAuth_WebAPI.Models.User", "Owner")
-                        .WithMany()
-                        .HasForeignKey("OwnerId");
-
-                    b.Navigation("Owner");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
