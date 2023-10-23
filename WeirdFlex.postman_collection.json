@@ -19,7 +19,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstname\": \"Bob\",\r\n    \"lastname\": \"Bobson\",\r\n    \"username\": \"bob\",\r\n    \"password\": \"Qw12345^\",\r\n    \"email\": \"bob@bob.bob\"\r\n}",
+							"raw": "{\r\n    \"firstname\": \"Gandalf\",\r\n    \"lastname\": \"TheGrey\",\r\n    \"username\": \"WizardGainz\",\r\n    \"password\": \"Qw12345^\",\r\n    \"email\": \"gandalf@wizard.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -48,7 +48,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"bob\",\r\n    \"password\": \"Qw12345^\"\r\n}",
+							"raw": "{\r\n    \"username\": \"WizardGainz\",\r\n    \"password\": \"Qw12345^\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
