@@ -7,7 +7,9 @@ namespace FullStackAuth_WebAPI.Data
 {
     public class ApplicationDbContext : IdentityDbContext<User>
     {
-
+            public DbSet<Comparison> Comparisons { get; set; }
+            public DbSet<Lift> Lifts { get; set; }
+            public DbSet<Flex> Flexes { get; set; }
         public ApplicationDbContext(DbContextOptions options)
     : base(options)
         {
