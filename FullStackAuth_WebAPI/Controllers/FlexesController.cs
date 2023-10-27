@@ -26,7 +26,7 @@ namespace FullStackAuth_WebAPI.Controllers
         {
             try
             {
-                List<Flex> allFlexes = _context.Flexes.ToList();
+                List<Flex> allFlexes = _context.Flexes.Include(f => f.Comparison).Include(f=>f.Lift).ThenInclude(l => l.User).ToList();
                 return StatusCode(200, allFlexes);
             }
             catch (Exception ex)
@@ -46,7 +46,7 @@ namespace FullStackAuth_WebAPI.Controllers
                 {
                     return Unauthorized();
                 }
-                Flex flex = _context.Flexes.FirstOrDefault(f => f.Id == id);
+                Flex flex = _context.Flexes.Include(f => f.Comparison).Include(f => f.Lift).ThenInclude(l => l.User).FirstOrDefault(f => f.Id == id);
                 if (flex == null)
                 {
                     return NotFound();
@@ -92,7 +92,7 @@ namespace FullStackAuth_WebAPI.Controllers
             {
                 string userId = User.FindFirstValue("id");
 
-                Flex flex = _context.Flexes.Include(f => f.Lift).FirstOrDefault (f => f.Id == id);
+                Flex flex = _context.Flexes.Include(f => f.Comparison).Include(f => f.Lift).ThenInclude(l => l.User).FirstOrDefault (f => f.Id == id);
                 if (flex == null)
                 {
                     return NotFound();
@@ -122,7 +122,7 @@ namespace FullStackAuth_WebAPI.Controllers
             {
                 string userId = User.FindFirstValue("id");
 
-                Flex flex = _context.Flexes.Include(f => f.Lift).FirstOrDefault(f => f.Id == id);
+                Flex flex = _context.Flexes.Include(f => f.Comparison).Include(f => f.Lift).ThenInclude(l => l.User).FirstOrDefault(f => f.Id == id);
                 if (flex == null)
                 {
                     return NotFound();
