@@ -1,5 +1,6 @@
 ﻿using FullStackAuth_WebAPI.Data;
 using FullStackAuth_WebAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -49,7 +50,7 @@ namespace FullStackAuth_WebAPI.Controllers
         }
 
         // POST api/<ComparisonsController>
-        [HttpPost]
+        [HttpPost, Authorize]
         public IActionResult Post([FromBody] Comparison comparison)
         {
             try
@@ -69,7 +70,7 @@ namespace FullStackAuth_WebAPI.Controllers
         }
 
         // PUT api/<ComparisonsController>/5
-        [HttpPut("{id}")]
+        [HttpPut("{id}"), Authorize]
         public IActionResult Put(int id, [FromBody] Comparison newComparison)
         {
             try
@@ -96,7 +97,7 @@ namespace FullStackAuth_WebAPI.Controllers
         }
 
         // DELETE api/<ComparisonsController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize]
         public IActionResult Delete(int id)
         {
             try
