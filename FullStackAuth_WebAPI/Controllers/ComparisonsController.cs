@@ -21,7 +21,7 @@ namespace FullStackAuth_WebAPI.Controllers
         {
             try
             {
-                var comparisons = _context.Comparisons.ToList();
+                List<Comparison> comparisons = _context.Comparisons.ToList();
                 return StatusCode(200, comparisons);
             }catch (Exception ex)
             {

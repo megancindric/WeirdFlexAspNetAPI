@@ -23,7 +23,7 @@ namespace FullStackAuth_WebAPI.Controllers
         {
             try
             {
-                var allLifts = _context.Lifts.ToList();
+                List<Lift> allLifts = _context.Lifts.ToList();
                 return StatusCode(200, allLifts);
             }
             catch (Exception ex)
@@ -113,6 +113,10 @@ namespace FullStackAuth_WebAPI.Controllers
                 string userId = User.FindFirstValue("id");
 
                 Lift lift = _context.Lifts.FirstOrDefault(l => l.Id == id);
+                if (lift == null)
+                {
+                    return NotFound();
+                }
                 if (string.IsNullOrEmpty(userId) || lift.UserId != userId)
                 {
                     return Unauthorized();
@@ -141,6 +145,10 @@ namespace FullStackAuth_WebAPI.Controllers
             {
                 string userId = User.FindFirstValue("id");
                 Lift lift = _context.Lifts.FirstOrDefault(l => l.Id == id);
+                if (lift == null)
+                {
+                    return NotFound();
+                }
                 if (string.IsNullOrEmpty(userId) || lift.UserId != userId)
                 {
                     return Unauthorized();

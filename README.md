@@ -23,14 +23,14 @@
 
 - As a user, I want to be able to edit or delete previously entered one rep maxes and their equivalent items.
 
-- As a user, I want to be able to share my lift equivalent on social media to show off my progress.
-
 - As a user, I want to be able to view a leaderboard and compare my one rep max weights and their equivalent items to those of other users.
 
 - As a user, I want the app to be intuitive and easy to navigate so I can use it efficiently without needing help.
 
 #### Bonus User Stories
 
-- As a Developer, I want to integrate The Measure of Things API, to provide a larger spectrum of options for lift comparisons
+- As a Developer, I want to integrate The Measure of Things API, to provide a larger spectrum of options for lift comparisons.
   
 - As a user, I want to be able to use the app offline and have it synchronize my data when I connect to the internet.
+
+- As a user, I want to be able to share my lift equivalent on social media to show off my progress.
