@@ -1,4 +1,5 @@
 ﻿using FullStackAuth_WebAPI.Data;
+using FullStackAuth_WebAPI.DataTransferObjects;
 using FullStackAuth_WebAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -51,17 +52,30 @@ namespace FullStackAuth_WebAPI.Controllers
 
         // POST api/<ComparisonsController>
         [HttpPost, Authorize]
-        public IActionResult Post([FromBody] Comparison comparison)
+        public IActionResult Post([FromBody] ComparisonForPostDto comparison)
         {
             try
             {
-                _context.Comparisons.Add(comparison);
+                if (Enum.TryParse(comparison.Category, out ComparisonCategory newCategory))
+                {
+                    Comparison newComparison = new Comparison()
+                    {
+                        Name = comparison.Name,
+                        WeightInPounds = comparison.WeightInPounds,
+                        Category = newCategory
+                    };
+                _context.Comparisons.Add(newComparison);
                 if (!ModelState.IsValid)
                 {
                     return BadRequest(ModelState);
                 }
+                _context.SaveChanges();
                 return StatusCode(201, comparison);
-
+                }
+               else
+                {
+                    return BadRequest("Invalid Category");
+                }
             }
             catch (Exception ex)
             {

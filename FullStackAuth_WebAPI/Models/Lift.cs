@@ -20,7 +20,6 @@ namespace FullStackAuth_WebAPI.Models
 
         [ForeignKey("User")]
         [BindNever]
-        [Required]
         public string UserId { get; set; }
 
         [BindNever]

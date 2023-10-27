@@ -10,17 +10,15 @@ namespace FullStackAuth_WebAPI.Models
         public int Id { get; set; }
 
         [Required]
-        public bool IsFavorite { get; set; }
+        public bool IsFavorite { get; set; } = false;
 
         [ForeignKey("Lift")]
-        [Required]
         public int LiftId { get; set; }
 
         [BindNever]
         public virtual Lift Lift { get; set; }
 
         [ForeignKey("Comparison")]
-        [Required]
         public int ComparisonId { get; set; }
 
         [BindNever]
